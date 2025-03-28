@@ -55,9 +55,8 @@ def mostra_alumnes(alumnes):
     print("---------------")
     print("{")
     for alumne in alumnes:
-        print(f"id:{alumne["id"]}, nom:{alumne["nom"]}, cognom:{alumne["cognom"]}")
+        print(f"ID: {alumne["id"]},  Nom: {alumne["nom"]}, Cognom: {alumne["cognom"]}")
     
-    print("}")
     input(("INPUT per tornar: "))
 
 # funcio per afegir un alumne al dic
@@ -99,7 +98,7 @@ def afegir_alumnes(alumnes):
         incrementa_cont()
 
         # Mirem si vol afegir altre
-        if input("Vols afegir una altre? (si/no): ").strip().lower() == "no":
+        if input("Vols afegir un altre? (si/no): ").strip().lower() == "no":
             break
 
 # Funcio per veure un unic alumne al seu id
@@ -114,12 +113,17 @@ def veure_alumne(alumnes):
         for alumne in alumnes:
             if id == alumne["id"]:
                 # Si la troba sortirà per pantalla
-                print(f"id: {alumne['id']}")
-                print(f"nom: {alumne['nom']}")
-                print(f"cognom: {alumne['cognom']}")
-                print(f"data de naixement: {alumne['data']}")
-                print(f"email: {alumne['email']}")
-                print(f"feina: {'Sí' if alumne['feina'] else 'No'}")
+                print(f"id: {alumne["id"]}")
+                print(f"nom: {alumne["nom"]}")
+                print(f"cognom: {alumne["cognom"]}")
+                print(f"data de naixement: {alumne["data"]["dia"]}/{alumne["data"]["mes"]}/{alumne["data"]["any"]}")
+                print(f"email: {alumne["email"]}")
+                
+                if alumne["feina"]:
+                    print("Feina: Sí")
+                else:
+                    print("Feina: No")
+
                 print(f"curs: {alumne['curs']}")
                 break 
         # Si no surt ho dirà
@@ -127,7 +131,7 @@ def veure_alumne(alumnes):
             print("Alumne no trobat")
 
         # Preguntem si vol buscar un altre
-        if input("Vols afegir una altre? (si/no): ").strip().lower() != "si":
+        if input("Vols veure un altre? (si/no): ").strip().lower() != "si":
             break
 
 
@@ -151,7 +155,7 @@ def esborrar_alumne(alumnes):
             print("Alumne no trobat")
 
         # Preguntem si vol buscar un altre
-        if input("Vols esborrar una altre? (si/no): ").strip().lower() != "si":
+        if input("Vols esborrar un altre? (si/no): ").strip().lower() != "si":
             break
 
 # Funcio per desar a fixter el nostre dic. El fitxer s'anomenada alumnes.json
