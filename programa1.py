@@ -18,6 +18,8 @@ def menu():
     print("6. Llegir fitxer")
     print("7. Sortir")
     num = input("> ")
+
+    # comprovamos que sea int
     try:
         num = int(num)
     except:
@@ -34,9 +36,12 @@ def obtenir_id(alumnes):
     else:
         id = []
         for alumne in alumnes:
+            # añadimos el id de todos
             id.append(alumne["id"])
+        # Devolvemos el id mas alto
         return max(id)+1
 
+# Funcion para incrementar contador
 def incrementa_cont():
     global cont
     cont += 1
@@ -213,7 +218,7 @@ while True:
     elif num == 7:
         sortir()
     else:
-        if(isinstance(num, int)):
+        if isinstance(num, int):
             print("No hi ha aquella opció")
         time.sleep(1)
     
