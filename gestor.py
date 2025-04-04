@@ -202,11 +202,14 @@ def sortir():
     exit()
 
 # On es trucaran les funcions
-alumnes = llegir_fixer()
 
+alumnes = []
+
+# Obtenemos la ID maxima +1
 cont = obtenir_id(alumnes)
 while True:
     num = menu()
+    # Comprovamos que tenemos que función ejecutar
     if num == 1:
         mostra_alumnes(alumnes)
     elif num == 2:
