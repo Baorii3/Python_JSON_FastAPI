@@ -53,20 +53,20 @@ def llistar_alumnes():
 
 # Si troba el alumne buscat per id hauràn de sortir les dades d'aquest
 @app.get("/id/{numero}")
-def obtenir_alumne(id: int):
+def obtenir_alumne(numero: int):
     for alumne in alumnes:
         # Busquem per id
-        if alumne["id"] == id:
+        if alumne["id"] == numero:
             return alumne
         
     return "L'alumne no existeix"
 
 # Si troba el alumne buscat per id haurà de treure-ho de la taula 
 @app.delete("/del/{numero}")
-def esborrar_alumne(id: int):
+def esborrar_alumne(numero: int):
     for alumne in alumnes:
         # Busquem per id
-        if alumne["id"] == id:
+        if alumne["id"] == numero:
             # Treiem el 
             alumnes.remove(alumne)
             return "Alumne eliminat"
