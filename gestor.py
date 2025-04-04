@@ -202,7 +202,6 @@ def sortir():
     exit()
 
 # On es trucaran les funcions
-
 alumnes = []
 
 # Obtenemos la ID maxima +1
