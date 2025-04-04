@@ -22,7 +22,7 @@ def llegir_fixer():
     a = fitxer.read() 
     # Ho pasem a un dicc
     alumnes = json.loads(a)
-     # Ho tanquem
+    # Ho tanquem
     fitxer.close()
     return alumnes
 
