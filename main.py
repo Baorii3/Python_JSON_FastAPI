@@ -26,6 +26,17 @@ def llegir_fixer():
     fitxer.close()
     return alumnes
 
+# Guardem les dades
+def desar_json(alumnes):
+    # Obrim l'arxiua amb per escriure
+    fitxer = open ("alumnes.json","w")
+    # Passem el diccionari a string
+    diccString = json.dumps(alumnes)
+    # Ho escrivim al fitxer
+    fitxer.write(diccString)
+    # Ho tanquem
+    fitxer.close
+
 # Funcio per a obtenir la id mes gran en el fitxer json
 def obtenir_id(alumnes):
     if not alumnes:
@@ -69,6 +80,7 @@ def esborrar_alumne(numero: int):
         if alumne["id"] == numero:
             # Treiem el 
             alumnes.remove(alumne)
+            desar_json(alumnes)
             return "Alumne eliminat"
         
     return "L'alumne no existeix"
@@ -81,5 +93,6 @@ def crear_alumne(nou: Alumne):
     dic = {"id":obtenir_id(alumnes), "nom":nou.nom, "cognom":nou.cognom, "data":{"dia":nou.dia, "mes":nou.mes, "any":nou.any}, "email":nou.email, "feina":nou.feina, "curs":nou.curs}
     # Afegim el dic a alumnes
     alumnes.append(dic)
+    desar_json(alumnes)
     return "L'alumne s'ha inserit correctament"
 
